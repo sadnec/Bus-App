@@ -1,4 +1,5 @@
-import 'package:quotes/pages/search/search_page.dart';
+import 'package:quotes/pages/history.dart';
+import 'package:quotes/pages/home_screen.dart';
 import 'package:quotes/pages/trips/trips_page.dart';
 import 'package:quotes/utils/consts.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,9 @@ class _PagesControllerState extends State<PagesController> {
       body: PageView(
         controller: _pageController,
         children: [
-          SearchPage(),
+          MyHomePage(title: 'Way Finder'),
           TripsPage(),
-          Container(
-            child: Center(
-              child: Text('Profile'),
-            ),
-          ),
+          MyScreen(),
         ],
       ),
       bottomNavigationBar: Container(

@@ -2,18 +2,6 @@ import 'package:flutter/material.dart';
 
 //Ndifor Denzel Dayepgha
 
-class MyApp extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
- return MaterialApp(
- title: 'Booking History',
- theme: ThemeData(
- primarySwatch: Colors.blue,
-),
-home: BookingHistoryScreen(),
-);
- }
-}
 class BookingHistoryScreen extends StatelessWidget {
  @override
  Widget build(BuildContext context) {

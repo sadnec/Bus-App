@@ -129,9 +129,3 @@ class TicketPurchase extends StatelessWidget {
     );
   }
 }
-
-void main() {
-  runApp(MaterialApp(
-    home: TicketPurchase(),
-  ));
-}

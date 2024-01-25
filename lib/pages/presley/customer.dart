@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quotes/pages/presley//bookings.dart';
+import 'package:quotes/pages/presley/bookings.dart';
 
 
 

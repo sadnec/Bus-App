@@ -1,3 +1,5 @@
+import 'package:quotes/pages/book_ticket.dart';
+import 'package:quotes/pages/home_screen.dart';
 import 'package:quotes/pages/login/login_page.dart';
 import 'package:quotes/utils/consts.dart';
 import 'package:flutter/material.dart';
