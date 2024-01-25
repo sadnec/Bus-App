@@ -13,7 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: veppoBlue,
+      backgroundColor: Colors.white,
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -21,25 +21,25 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Spacer(flex: 2),
             Image.asset(
-              'assets/images/logo/wayfinder.jp',
+              'assets/images/logo/wayfinder.jpg',
               width: MediaQuery.of(context).size.width / 2,
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
                 keyboardType: TextInputType.number,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.contact_mail_outlined,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
-                  labelText: "Phone Number",
+                  labelText: "Email or Phone Number",
                   labelStyle: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white38, width: 2),
+                    borderSide: BorderSide(color: Colors.black45, width: 2),
                   ),
                 ),
               ),
@@ -48,18 +48,18 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.all(16.0),
               child: TextField(
                 obscureText: !_showPassword!,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.lock_outline,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                   labelText: "Password",
                   labelStyle: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white38, width: 2),
+                    borderSide: BorderSide(color: Colors.black38, width: 2),
                   ),
                 ),
               ),
@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text(
                     'Login',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                 ),

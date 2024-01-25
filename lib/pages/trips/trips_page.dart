@@ -50,7 +50,7 @@ class TripsPage extends StatelessWidget {
                             ),
                             SizedBox(height: 28),
                             Text(
-                              '29 OTC',
+                              '6000 F',
                               style: TextStyle(
                                 fontSize: 32,
                               ),

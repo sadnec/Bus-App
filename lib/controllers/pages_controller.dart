@@ -22,11 +22,6 @@ class _PagesControllerState extends State<PagesController> {
           TripsPage(),
           Container(
             child: Center(
-              child: Text('Messages'),
-            ),
-          ),
-          Container(
-            child: Center(
               child: Text('Profile'),
             ),
           ),
@@ -59,16 +54,12 @@ class _PagesControllerState extends State<PagesController> {
           },
           items: [
             BottomNavigationBarItem(
-              label: 'Search',
+              label: 'Booking',
               icon: Icon(Icons.search_rounded),
             ),
             BottomNavigationBarItem(
-              label: 'Trips',
+              label: 'Trips History',
               icon: Icon(Icons.menu),
-            ),
-            BottomNavigationBarItem(
-              label: 'Messages',
-              icon: Icon(Icons.chat_outlined),
             ),
             BottomNavigationBarItem(
               label: 'Profile',
