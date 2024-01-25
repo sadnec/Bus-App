@@ -1,83 +1,130 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+
 // Nadia
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  final TextEditingController _adminManagerController = TextEditingController();
-  List<String> adminManagers = [
-    'John Doe',
-    'Mac A Roni',
-    'Kelly Second Name',
-  ];
-
-  void addAdminManager() {
-    String adminManagerName = _adminManagerController.text;
-    if (adminManagerName.isNotEmpty) {
-      setState(() {
-        adminManagers.add(adminManagerName);
-        _adminManagerController.clear();
-      });
-    }
-  }
-
-  void removeAdminManager(String name) {
-    setState(() {
-      adminManagers.remove(name);
-    });
-  }
-
+class AdminManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Admin Manager'),
+      title: 'Admin Manager',
+      theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+      home: AdminManagerScreen(),
+    );
+  }
+}
+
+class AdminManagerScreen extends StatefulWidget {
+  @override
+  _AdminManagerScreenState createState() => _AdminManagerScreenState();
+}
+
+class _AdminManagerScreenState extends State<AdminManagerScreen> {
+  List<String> admins = ['John Doe', 'Mac A Roni', 'Kelly Second Name'];
+  TextEditingController _adminNameController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Total: ${admins.length}'),
+            Text('Admin'),
+          ],
         ),
-        backgroundColor: Colors.grey[200],
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              TextField(
-                controller: _adminManagerController,
-                decoration: InputDecoration(
-                  labelText: 'Admin Manager',
-                ),
+      ),
+      backgroundColor: Colors.grey[800],
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'Admins:',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: addAdminManager,
-                child: Text('Add Admin Manager'),
-              ),
-              SizedBox(height: 16.0),
-              Text(
-                'Admin Managers:',
-                style: TextStyle(fontSize: 18.0),
-              ),
-              SizedBox(height: 8.0),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: adminManagers.length,
-                  itemBuilder: (context, index) {
-                    final name = adminManagers[index];
-                    return ListTile(
-                      title: Text(name),
-                      trailing: IconButton(
-                        icon: Icon(Icons.delete),
-                        onPressed: () => removeAdminManager(name),
+            ),
+            SizedBox(height: 8.0),
+            Expanded(
+              child: ListView.builder(
+                itemCount: admins.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    title: Text(
+                      admins[index],
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(
+                        Icons.remove,
+                        color: Colors.red,
                       ),
-                    );
-                  },
-                ),
+                      onPressed: () {
+                        setState(() {
+                          admins.removeAt(index);
+                        });
+                      },
+                    ),
+                  );
+                },
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 16.0),
+            Text(
+              'Add Admin:',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8.0),
+            TextField(
+              controller: _adminNameController,
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.grey[700],
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  String adminName = _adminNameController.text;
+                  if (adminName.isNotEmpty) {
+                    admins.add(adminName);
+                    _adminNameController.clear();
+                  }
+                });
+              },
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey[700],
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(16.0),
+                minimumSize: Size(0, 0),
+              ),
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _adminNameController.dispose();
+    super.dispose();
   }
 }
